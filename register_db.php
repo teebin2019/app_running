@@ -10,7 +10,7 @@ try {
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $birth_day = $_POST['birth_day'];
-    $prices = $_POST['price']; // เก็บเป็น array
+    $prices = $_POST['price'] ?? [];  // เก็บเป็น array
 
     // ค้นหาเลขประชาชนว่าซ้ำไหม
     $stmt = $conn->prepare("SELECT * FROM users WHERE id_card = :id_card");
@@ -28,7 +28,7 @@ try {
                   title: "บัตรประชาชนนี้มีการลงทะเบียนแล้ว",
                   type: "error"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -96,7 +96,7 @@ VALUES (:type, :id_card ,  :price)");
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
