@@ -37,6 +37,7 @@ if ($stmt->rowCount() > 0) {
     $type_selected = array_column($type_rows, 'type');
 } else {
     $type_rows = [];
+    $type_selected = [];
 }
 
 
